@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Modal AI Pipeline - Architecture Presentation</title>
+  <style>
+    :root {
+      --navy: #0F172A;
+      --slate: #1E293B;
+      --panel: #1E293B;
+      --teal: #0D9488;
+      --teal-light: #CCFBF1;
+      --amber: #D97706;
+      --amber-light: #FEF3C7;
+      --bg: #F8FAFC;
+      --border: #CBD5E1;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg); color: var(--text-main); padding: 2rem; display: flex; flex-direction: column; align-items: center; }
+    .container { max-width: 1440px; width: 100%; }
+    
+    header {
+      background: var(--navy);
+      color: white;
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
+    header .badge { background: var(--teal); color: white; padding: 0.35rem 0.8rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 600; }
+
+    .infographic-wrapper {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+      margin-bottom: 1.5rem;
+    }
+    .infographic-wrapper img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .card h3 { font-size: 1.2rem; color: var(--slate); margin-bottom: 0.75rem; border-bottom: 2px solid var(--teal); padding-bottom: 0.5rem; }
+
+    .disclaimer-card {
+      background: #F0FDFA;
+      border: 1px solid #99F6E4;
+      border-left: 6px solid var(--teal);
+      border-radius: 8px;
+      padding: 1.2rem;
+      margin-top: 1rem;
+    }
+    .disclaimer-card strong { color: #115E59; }
+
+    .audit-result-box {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-radius: 8px;
+      padding: 1.2rem;
+    }
+    .risk-tag {
+      background: var(--amber);
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    ul.feature-list { list-style: none; margin-top: 0.5rem; }
+    ul.feature-list li { margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; }
+    ul.feature-list li::before { content: "▸"; position: absolute; left: 0; color: var(--teal); font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Multi-Modal AI Pipeline for Trade Document Fraud Detection & Compliance Auditing</h1>
+        <p style="color: #94A3B8; font-size: 0.95rem; margin-top: 0.3rem;">University Engineering Presentation · 16:9 Systems Architecture Reference</p>
+      </div>
+      <span class="badge">Auditor-in-the-Loop Architecture</span>
+    </header>
+
+    <div class="infographic-wrapper">
+      <img src="architecture_infographic.jpg" alt="Technical Architecture Infographic" />
+    </div>
+
+    <div class="details-grid">
+      <div class="card">
+        <h3>Pipeline Architecture Breakdown</h3>
+        <p style="margin-bottom: 0.8rem; line-height: 1.6;">
+          This systems diagram illustrates the complete ingestion and analytical path of cross-border trade documentation:
+        </p>
+        <ul class="feature-list">
+          <li><strong>Document Ingestion:</strong> Handles Commercial Invoices, Bills of Lading, and Customs Declarations via FastAPI REST endpoints.</li>
+          <li><strong>OCR & Normalization:</strong> Multilingual optical text extraction paired with DPI scaling and morphological pre-filtering.</li>
+          <li><strong>Parallel Analytics Branches:</strong>
+            <ul style="padding-left: 1rem; margin-top: 0.3rem;">
+              <li><em>Image Analytics (OpenCV · YOLO · ResNet):</em> Inspects stamp perimeters, signature strokes, letterhead logos, and pixel-level Error Level Analysis (ELA) tampering.</li>
+              <li><em>NLP / Document Understanding (LayoutLMv3 · Transformers):</em> Spatially extracts structured entities (amounts, HS codes, container numbers, trading entities).</li>
+            </ul>
+          </li>
+          <li><strong>Multimodal Feature Fusion:</strong> Synthesizes spatial text evidence with forensic visual artifacts, generating cross-modal anomaly flags.</li>
+          <li><strong>Storage & Compliance Interface:</strong> Stores auditable JSONB records in PostgreSQL and renders interactive metrics via Streamlit + Plotly.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="card audit-result-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+            <h4 style="margin: 0; color: #78350F;">Audited Case: Invoice_001.pdf</h4>
+            <span class="risk-tag">Risk Level: High</span>
+          </div>
+          <div style="font-size: 1.4rem; font-weight: 800; color: #92400E; margin-bottom: 0.6rem;">
+            Risk Score: 78/100
+          </div>
+          <p style="font-size: 0.9rem; color: #78350F; line-height: 1.5; margin-bottom: 0.8rem;">
+            <strong>Reasons:</strong><br>
+            • Suspicious visual alteration<br>
+            • Amount inconsistency<br>
+            • Unusual document layout
+          </p>
+        </div>
+
+        <div class="disclaimer-card">
+          <strong>⚖️ Human-Review Principle:</strong><br>
+          <span style="font-size: 0.9rem; color: #134E4A; display: inline-block; margin-top: 0.3rem;">
+            AI-generated risk indicator—not proof of fraud. Final decision remains with the human auditor.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
